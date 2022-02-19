@@ -79,6 +79,11 @@ def setup():
     writer.pu()
     writer.bk(85)
 
+#setting hari
+def wochentag(t):
+    wochentag = ["Senin", "Selasa", "Rabu",
+        "Kamis", "Jum'at", "Sabtu", "Minggu"]
+    return wochentag[t.weekday()]
 
 #setting waktu
 def tick():
@@ -90,6 +95,9 @@ def tick():
     writer.clear()
     writer.home()
     writer.forward(65)
+    writer.write(wochentag(t),
+                 align="center", font=("Arial", 14, "bold"))
+    writer.back(150)
     tracer(True)
     second_hand.setheading(6*sekunde)
     minute_hand.setheading(6*minute)
