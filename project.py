@@ -85,6 +85,15 @@ def wochentag(t):
         "Kamis", "Jum'at", "Sabtu", "Minggu"]
     return wochentag[t.weekday()]
 
+#setting bulan
+def datum(z):
+    monat = ["Jan.", "Feb.", "Mar.", "Apr.", "Mei", "Juni",
+             "Juli", "Agt.", "Sep.", "Okt.", "Nov.", "Des."]
+    j = z.year
+    m = monat[z.month - 1]
+    t = z.day
+    return "%s %d %d" % (m, t, j)
+
 #setting waktu
 def tick():
     t = datetime.today()
@@ -98,6 +107,9 @@ def tick():
     writer.write(wochentag(t),
                  align="center", font=("Arial", 14, "bold"))
     writer.back(150)
+    writer.write(datum(t),
+                 align="center", font=("Calibri", 16, "bold"))
+    writer.forward(85)
     tracer(True)
     second_hand.setheading(6*sekunde)
     minute_hand.setheading(6*minute)
